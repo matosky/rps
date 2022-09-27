@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="modal" class="modal"></div>
+        <img id="rules" class="rules" src="./images/image-rules.svg" alt="rules" />
+        <div class="container">
+            <header>
+                <div class="title">
+                    <h1>ROCK</h1>
+                    <h1>PAPER</h1>
+                    <h1>SCISSORS</h1>
+                </div>
+
+                <div class="score">
+                    <p>SCORE</p>
+                    <span id="score">0</span>
+                </div>
+            </header>
+        </div>
+        <div class="container switch">
+            <div id="options" class="options">
+                <img class="triangle"  src="triangle.svg" alt="">
+                <div class="circle paper">
+                    <img id="paper" class="option" src="paper.svg" alt="">
+                </div>
+                <div class="scissors circle">
+                    <img id="scissors" class="option"  src="scissors.svg" alt="">
+                </div>
+                <div class="rock circle">
+                    <img id="rock" class="option" src="rock.svg" alt="">
+                </div>
+            </div>
+
+            <div id="choices" class="choices">
+                <div>
+                    <h2>YOU PICKED</h2>
+                    <div id="mypicked" class="myPicked">
+                        <img class="selected" src="paper.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="i-winBox">
+                    <div id="i-win" class="i-win">
+                        <h2 id="confirm">YOU WIN</h2>
+                        <button class="playAgain" id="playAgain">PLAY AGAIN</button>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>THE HOUSE PICKED</h2>
+                    <div class="computerBox">
+                        <div class="computer" id="computerBox">
+                            <img  class="selected" src="" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="btn-rule" class="btn-rule">RULES</button>
+    </div>
+
+
+<script src="game.js"></script>    
+</body>
+</html>

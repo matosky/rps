@@ -1,0 +1,364 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Graphik;
+}
+
+img{
+    cursor: pointer;
+}
+
+.wrapper{
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+     background: hsl(237, 49%, 15%);
+     position: relative;
+}
+
+
+.container{
+    width: 80vw;
+    max-width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    position: relative;
+}
+
+header{
+    color: #fff;
+    width: 70vw;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    position: relative;
+    border-radius: 3px;
+    margin: 0 auto;
+    box-shadow: 0px 3px 10px rgb(255 255 255 / 0.2);
+}
+
+header .title > h1{
+    font-weight: 300;
+}
+
+header .score{
+    box-shadow: 0 3px 10px rgb(255 255 255 / 0.2);
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius:6px;
+}
+
+
+
+header .score > p{
+    font-size: 1.5rem;
+    margin: 0 0 8px 0;
+    color:hsl(230, 89%, 62%);
+    font-weight: 700;
+}
+
+header .score > span{
+    color: hsl(229, 25%, 31%);
+    font-size: 1.5rem;
+}
+
+
+
+.switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    height: fit-content;
+}
+
+.choices{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+
+.choices  h2{
+    color:#fff;
+    width: fit-content;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.choices .myPicked{
+    width: 200px;
+    height: 200px;
+    border: 10px solid hsl(39, 89%, 49%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+
+
+.computer{
+    width: 200px;
+    height: 200px;
+    border: 10px solid hsl(230, 89%, 62%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.computerBox{
+    width: 200px;
+    height: 200px;
+    background:hsl(229, 25%, 31%);
+    border-radius: 50%;
+}
+
+.i-winBox{
+    width: fit-content;
+    height: fit-content;
+    margin: 0 30px;
+}
+
+.choices .i-win{
+    text-align: center;
+    color: #fff;
+    margin: 0px 20px;
+}
+
+.choices .playAgain{
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  color: red;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.options{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
+.show{
+    display: flex;
+}
+
+.hide{
+    display: none;
+}
+
+.options .circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+   transform: scale(0.9);
+   transition: all 0.3s ease;
+}
+
+.options .circle:hover{
+   transform: scale(1);
+}
+
+.options .paper{
+    width: 100px;
+    max-width: 100%;
+    height: 100px;
+    position: absolute;
+    top: -30;
+    left: -30;
+    border: 10px solid hsl(230, 89%, 62%);
+    border-radius: 50%;
+}
+
+.options .scissors{
+    width: 100px;
+    max-width: 100%;
+    height: 100px;
+    position: absolute;
+    top: -30;
+    right: -30;
+    border: 10px solid hsl(39, 89%, 49%);
+    border-radius: 50%;
+}
+
+.options .rock{
+    width: 100px;
+    max-width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: -10px;
+    left: 35%;
+    transform: translateX(-50%, -50%);
+    border: 10px solid hsl(349, 71%, 52%);
+    border-radius: 50%;
+}
+
+
+
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 400;
+    display: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.modal::after{
+   position: absolute;
+   content: " ";
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: hsl(237, 49%, 15%);
+   opacity: 1;
+   z-index: 200;
+}
+
+.rules{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+}
+
+.btn-rule{
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  border: 1px solid lightslategray;
+  outline: none;
+  padding: 0.4rem 0.9rem;
+  background: hsl(237, 49%, 15%);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.btn-rule:hover{
+   background: #fff;
+   color: hsl(237, 49%, 15%);
+}
+
+.toggleModal{
+    display: block;
+}
+
+
+@media screen and (max-width:765px){
+    header .title > h1{
+        font-size: 1rem;
+    }
+
+    header .score{
+        padding: 0.5rem;
+    }
+    
+    
+    
+    header .score > p{
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    header .score > span{
+        font-size: 1.2rem;
+    }
+
+    .container{
+        width: 98vw;
+    }
+
+    .triangle{
+        width: 200px;
+    }
+
+    .options  > .circle >.option{
+        width: 30px;
+    }
+
+    .options .rock{
+        left: 30%;
+    }
+
+    .options .circle{
+        width: fit-content;
+        height: fit-content;
+        padding: 1.2rem;
+    }
+
+    .computerBox{
+        width: 100px;
+        height: 100px;
+    }
+
+    .computer .selected{
+        width: 30px;
+    }
+
+    .computer{
+        width: 100px;
+        height: 100px;
+        padding: 0.7rem;
+    }
+
+    .myPicked > .selected{
+        width: 30px;
+    }
+
+    .choices .myPicked{
+        width: 100px;
+        padding: 0.7rem;
+        height: 100px;
+    }
+
+    .choices .i-win{
+        margin: 0px 5px;
+    }
+
+    .choices  h2{
+       font-size: 0.7rem;
+    }
+
+    .choices .playAgain{
+        padding: 0.3rem 0.3rem;
+        font-size: 0.6rem;
+      }
+
+    /* .options .paper{
+        width:50px;
+    } */
+
+    .btn-rule{
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+}
